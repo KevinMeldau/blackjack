@@ -11,12 +11,20 @@ class BlackJack
     puts "Your card is #{get_random_card}"
     @player_hand = get_starting_hand
     @dealer_hand = get_starting_hand
-    puts "Player hand: #{@player_hand}"
+    puts "Player hand: #{@player_hand} value: #{get_hand_value(@player_hand)}"
     puts "Dealer hand: #{@dealer_hand}"
   end
 
   def get_starting_hand
     [get_random_card, get_random_card]
+  end
+
+  def get_hand_value(hand)
+    sum = 0
+    hand.each do |card|
+      sum = sum + card
+    end
+    sum
   end
 
   def get_random_card
